@@ -10,7 +10,7 @@
     3. XXX
     4. XXX
 * [1.3 Quality control](XXX)
-* [1t: In-class worksheet](Basics and QC): XXX *(answers are [here](XXX))*
+* [1t: In-class worksheet](XXX): Basics and QC *(answers are [here](XXX))*
     1. [Link to in-class worksheet data](XXX)
 * Course extras:
     1. [XXX](XXX)
