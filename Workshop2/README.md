@@ -1,15 +1,35 @@
-# Workshop 2: Genomic data analysis
 
-## Friday, April 28 (10am-1pm in XXX)
+# Workshop 2: XXX
 
-* [1.1 Standard data filtering](XXX)
-* [1.2 Selection scans: GEA](XXX):
-    1. XXX
-    2. XXX
-    3. XXX
-    4. XXX
-* [1.3 Selection scans: GWAS and Fst](XXX)
-* [1t: In-class worksheet](XXX): Genomic data analysis *(answers are [here](XXX))*
-    1. [Link to in-class worksheet data](XXX)
-* Course extras:
-    1. [XXX](XXX)
+## Friday, April 28 (10am-1pm)
+
+Instructor: Phred Benham (phbenham@gmail.com)
+
+This workshop will XXX
+
+### Topics
+
+**1. Selection scans (slides [here](XXX))**
+* ***Activities and questions [here](XXX)***
+
+**2. Genotype-environment association methods (slides [here](XXX))**
+* ***Activities and questions [here](XXX)***
+
+**3. Site frequency spectrum (and basic demography) (slides [here](XXX))**
+* ***Activities and questions [here](XXX)***
+
+### Software required
+**Online:** [http://geneontology.org](http://geneontology.org/)
+
+**Linux:** `vcftools`, `bedtools`, `GADMA`
+
+**R packages:** `RDA`, `GEMMA`, `qqman`
+
+See course installation instructions [here](XXX).
+
+### Example dataset to be used
+
+We will be using rangewide exome sequence data of the Savannah Sparrow (*Passerculus sandwichensis*), which contains XX SNPs for XX individuals. We will also be subsetting this dataset to perform selection scans between groupings of individuals depending on habitat.
+
+### Additional resources
+
