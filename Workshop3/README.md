@@ -1,5 +1,5 @@
 
-# Workshop 1: Basics of genomic data and quality control
+# Workshop 3: Comparative genomics
 
 ## Friday, May 5 (10am-1pm)
 
