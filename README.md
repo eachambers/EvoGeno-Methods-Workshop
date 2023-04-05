@@ -12,7 +12,7 @@ Anne Chambers (eachambers@berkeley.edu)
 
 ### Time and location
 
-The workshops will be held at the **Evans computer lab (room B3A) from 10AM to 1PM on Friday April 21, April 28, and May 5**.
+The workshops will be held at the **Evans computer lab (Evans Hall room B3A) from 10AM to 1PM on Friday April 21, April 28, and May 5**.
 
 ### Installation information
 
