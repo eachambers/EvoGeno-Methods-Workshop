@@ -3,7 +3,7 @@
 
 ## Friday, May 5 (10am-1pm)
 
-Instructor: Yocelyn Gutiérrez Guerrero (ygutierrezgro@berkeley.edu)
+**Instructor:** Yocelyn Gutiérrez-Guerrero (ygutierrezgro@berkeley.edu)
 
 This workshop will use whole genome information of different species at different phylogenetic distances to explore how the genomes have evolved. Comparative genomics is a field that will analyze the synteny of genomes, reconstruct phylogenetic relationships using hundreds or thousands of genome regions, gene content, the evolution of gene families, and selection pressures across the species.
 
