@@ -16,7 +16,7 @@ The workshops will be held at the **Evans computer lab (room B3A) from 10AM to 1
 
 ### Installation information
 
-This workshop requires pre-installation of various softwares and R packages. Find detailed instructions on which software you'll require for the workshop, and installation instructions, [here](XXX).
+This workshop requires pre-installation of various softwares and R packages. Find detailed instructions on which software you'll require for the workshop, and installation instructions, [here](https://docs.google.com/document/d/1J-HjigOT_Zeu1xv38uY6dttdloo8OQG2km_fr87qIMk/edit?usp=sharing).
 
 ### Miscellaneous
 
