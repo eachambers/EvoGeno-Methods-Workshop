@@ -14,18 +14,18 @@ This workshop will explore the basics of genomics, including available methods t
 * How do methods compare? How does it depend on the questions you want to ask?
 * Considerations and biases for different genomic data types
 * Brief review of sequencing/input/output file types
-* ***Worksheet [here](XXX)***
+* ***Activities and questions [here](XXX)***
 
 **2. Quality control of genomic data (slides [here](XXX))**
 * Missing data, read depth, and other considerations
 * Visualizing data for QC: PCA, relatedness, diversity, ADMIXTURE
 * "Red flags" in your data and what to do about them
-* ***Worksheet [here](XXX)***
+* ***Activities and questions [here](XXX)***
 
 **3. Generating files for downstream analysis (slides [here](XXX))**
 * Pruned vcf, distance matrix, dosage/genotype matrix
 * Advanced data processing: ROH, LD-pruning, imputation
-* ***Worksheet [here](XXX)***
+* ***Activities and questions [here](XXX)***
 
 ### Software required
 **Linux:** `vcftools`, `bcftools`, `plink`, `ADMIXTURE`
