@@ -1,5 +1,5 @@
 
-# Workshop 2: XXX
+# Workshop 2: The basics of selection and demographic analyses
 
 ## Friday, April 28 (10am-1pm)
 
