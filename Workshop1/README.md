@@ -37,5 +37,6 @@ See course installation instructions [here](XXX).
 ### Example dataset to be used
 
 We will be using the *Sceloporus* ddRADseq dataset from [Bouzid et al. 2021](https://onlinelibrary.wiley.com/doi/full/10.1111/mec.15836).
+You can download the dataset [here](https://datadryad.org/stash/dataset/doi:10.5061/dryad.n5tb2rbv2).
 
 ### Additional resources
