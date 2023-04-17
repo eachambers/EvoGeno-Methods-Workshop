@@ -14,6 +14,12 @@ Anne Chambers (eachambers@berkeley.edu)
 
 The workshops will be held at the **Evans computer lab (Evans Hall room B3A) from 10AM to 1PM on Friday April 21, April 28, and May 5**.
 
+If you will be using one of the computer lab computers, the login info is as follows:
+
+**Username:** !cmfevgenwkshp
+
+**Password:** c@1b3arsevgen
+
 ### Installation information
 
 This workshop requires pre-installation of various softwares and R packages. Find detailed instructions on which software you'll require for the workshop, and installation instructions, [here](https://docs.google.com/document/d/1J-HjigOT_Zeu1xv38uY6dttdloo8OQG2km_fr87qIMk/edit?usp=sharing).
