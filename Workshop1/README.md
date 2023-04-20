@@ -14,29 +14,34 @@ This workshop will explore the basics of genomics, including available methods t
 * How do methods compare? How does it depend on the questions you want to ask?
 * Considerations and biases for different genomic data types
 * Brief review of sequencing/input/output file types
-* ***Activities and questions [here](XXX)***
+* ***Exercises [here](https://github.com/eachambers/EvoGeno-Methods-Workshop/blob/main/Workshop1/Exercises/EvoGenomics_Ws1_Ex1.txt)***
 
 **2. Quality control of genomic data (slides [here](XXX))**
-* Missing data, read depth, and other considerations
+* Missing data, read depth, LD-pruning, and other considerations
 * Visualizing data for QC: PCA, relatedness, diversity, ADMIXTURE
 * "Red flags" in your data and what to do about them
-* ***Activities and questions [here](XXX)***
-
-**3. Generating files for downstream analysis (slides [here](XXX))**
-* Pruned vcf, distance matrix, dosage/genotype matrix
-* Advanced data processing: ROH, LD-pruning, imputation
-* ***Activities and questions [here](XXX)***
+* Advanced data processing: ROH, imputation
+* ***Exercises [here](https://github.com/eachambers/EvoGeno-Methods-Workshop/blob/main/Workshop1/Exercises/EvoGenomics_Ws1_Ex2.txt) and R script [here](XXX)***
 
 ### Software required
 **Linux:** `vcftools`, `bcftools`, `plink`, `ADMIXTURE`
 
 **R packages:** `devtools`, `vcfR`, `tidyverse`, `adegenet`, `hierfstat`
 
-See course installation instructions [here](XXX).
+See course installation instructions [here](https://docs.google.com/document/d/1J-HjigOT_Zeu1xv38uY6dttdloo8OQG2km_fr87qIMk/edit).
 
 ### Example dataset to be used
 
-We will be using the *Sceloporus* ddRADseq dataset from [Bouzid et al. 2021](https://onlinelibrary.wiley.com/doi/full/10.1111/mec.15836).
-You can download the dataset [here](https://datadryad.org/stash/dataset/doi:10.5061/dryad.n5tb2rbv2).
+We will be working with a *Lampropeltis* ddRADseq dataset; you can download the vcf we'll be working with [here](https://github.com/eachambers/EvoGeno-Methods-Workshop/blob/main/Workshop1/Data/lampro.vcf). The raw data files from the manuscript are available on Dryad [here](https://datadryad.org/stash/dataset/doi:10.5061/dryad.9s4mw6mj8).
 
 ### Additional resources
+
+Manuals for programs:
+
+**[bcftools](https://samtools.github.io/bcftools/bcftools.html)**
+
+**[vcftools](https://vcftools.sourceforge.net/man_latest.html)**
+
+**[plink](https://www.cog-genomics.org/plink/1.9/)**
+
+**[admixture](https://dalexander.github.io/admixture/admixture-manual.pdf)**
