@@ -1,0 +1,138 @@
+# ========================================================================================
+#                                      WORKSHOP 1
+# ========================================================================================
+
+# For relevant information and files, please go to the workshop's Github page here:
+# https://github.com/eachambers/EvoGeno-Methods-Workshop/tree/main/Workshop1
+
+# If you followed the installation instructions provided, you should be able to activate 
+# your conda environment (EvoGen). If you have not done so:
+
+conda create -n EvoGen
+
+# Install relevant packages in your environment and activate:
+
+conda activate EvoGen
+
+# Today, we'll be using the following programs:
+#			vcftools
+#			bcftools
+#			plink
+#			R
+
+# ========================================================================================
+#                                      EXERCISE 1
+# ========================================================================================
+
+# bcftools is a great program for processing data (and is also actively maintained), whereas
+# vcftools and plink are great for generating summary statistics. In this exercise, we'll 
+# use all three of these programs in the Terminal.
+
+# ======================= 1. BASIC EXAMINATION OF THE VCF DATA FILE ======================
+
+# Answer the following questions using bash.
+
+#		(1a) Take a look at the lampro.vcf file. How was this vcf generated?
+#				*** YOUR ANSWER HERE ***
+
+#		(1b) What info is contained (per site) within the vcf?
+#				*** YOUR ANSWER HERE ***
+
+# The following questions use the query command in bcftools.
+
+#		(1c) What do the following lines do?:
+$ bcftools query -f '[%GT\n]' lampro.vcf | head -3
+$ bcftools query -f '%CHROM %POS [%GT\n]' lampro.vcf | head -3
+#				*** YOUR ANSWER HERE ***
+
+#		(1d) How many sites are there in the vcf? (*hint:* use the -f flag followed by 
+#			 '%POS\n'. The -f flag stands for "FORMAT", and the \n will make sure each 
+#			 site is printed on a separate line, which is important when you go to count the
+#			 number of lines...)
+#				*** YOUR ANSWER HERE ***
+
+#		(1e) How many samples are there in the vcf? (*hint:* use the -l flag)
+#				*** YOUR ANSWER HERE ***
+
+# ======================== 2. USING BCFTOOLS TO PROCESS THE DATA =========================
+
+#		For the following questions, the output type we want (-O flag) is an uncompressed 
+#		vcf, which is denoted with v (compressed - i.e., vcf.gz, is denoted with z). It's 
+#		also good practice to name our files according to what filters we've applied, which 
+#		we can do using the -o flag, followed by the output file name.
+
+#		-e is a flag that stands for "exclude". Likewise, the -i flag in bcftools stands for
+#		"include". Each of these flags can be used to filter out sites to be excluded or
+#		included based on user-specified conditions (e.g., exclude sites that have above
+#		x% missing data).
+
+#		For example, the following line will take in file.vcf and will produce a file 
+#		that only includes (-i flag) sites that have a minimum read depth (DP) specified 
+#		in the FORMAT header (FMT) of 5, and will save the output vcf file as file_minDP.vcf:
+$ bcftools view -i 'MIN(FMT/DP) > 2' -O v -o file_minDP.vcf file.vcf
+
+#		(2a) Filter the vcf file to remove sites that have missing data proportions >75%
+#			 (using the -e flag and 'F_MISSING'). How many sites remain?  What does the 
+#			 new vcf look like, and how does it differ from lampro.vcf?
+#			 does it differ from lampro.vcf?
+#				*** YOUR ANSWER HERE ***
+
+#		(2b) Using the vcf you generated from 1.2a, apply a filter to the vcf to 
+#			 fail sites that have a minor allele frequency below 0.01 using the -q 
+#			 (or --min-af) flag. How many sites remain?
+#				*** YOUR ANSWER HERE ***
+
+# ====================== 3. GENERATING SUMMARY STATS WITH VCFTOOLS =======================
+
+#		(3a) Calculate missing data proportions (--missing-indv flag) for the vcf that was 
+#			 generated from the filtering in step 1.2b. What does the resulting file look like?
+#				*** YOUR ANSWER HERE ***
+
+#		(3b) Extract read depths for each individual (--depth flag) for the vcf 
+#			 that was generated from the filtering in step 1.2b.  What does the resulting file 
+#			 look like?
+#				*** YOUR ANSWER HERE ***
+
+#		(3c) BONUS QUESTION: You can do multiple calls to vcftools within the same line.
+#			 How would you do both 1.3a and 1.3b in the same line of code?
+#				*** YOUR ANSWER HERE ***
+
+# =========================== 4. LD-PRUNING AND PCA WITH PLINK ===========================
+
+# Plink is another program that's helpful to calculate various metrics from data. Importantly,
+# Plink can also generate bed files for us, which will be helpful when using programs like
+# admixture. A call to Plink looks like:
+$ plink --vcf file.vcf --out output_prefix --allow-extra-chr --autosome-num 95 --distance square
+
+# The above will generate a square distance matrix (--distance flag) from file.vcf and will 
+# name it with the prefix provided using the --out flag. Additional flags are:
+#		--allow-extra-chr	allows unrecognized chromosome codes if you have non-standard
+#							chromosome IDs (as with our data!)
+#		--autosome-num		specifies the number of chromosomes. Just say 95 for our data.
+
+# LD-pruning with plink is a two-step process. The first step generates two files: a list 
+# of SNPs to be pruned out (.prune.out), and a list of SNPs to be retained (.prune.in) 
+# after LD-pruning. The second step takes in the prune.in file and actually does the 
+# LD-pruning on the data.
+
+#		(4a) Generate a list of SNPs to be LD-pruned using the --indep-pairwise flag with
+#			 the following parameters: a window size of 50, a step size of 5, and an r2
+#			 threshold of 0.6 using the vcf generated in 2b.
+#				*** YOUR ANSWER HERE ***
+
+#		(4b) Prune the SNPs from 1.4a out of the vcf (using the --extract flag followed by
+#			 the name of the prune.in file). Be sure to specify that you want a bed file 
+#			 created using the --make-bed flag, and you should also create a vcf file using
+#			 the --recode flag followed by the vcf float. How many sites remain after 
+#			 LD-pruning?
+#				*** YOUR ANSWER HERE ***
+
+#		(4c) For the sake of comparing LD-pruned data to non-LD-pruned, let's also generate
+#			 a bed file directly from our filtered vcf (from 1.2b). To do so, all you need
+#			 to use is the --make-bed flag. Make sure you're still using --allow-extra-chr
+#			 and --autosome-num 95.
+#				*** YOUR ANSWER HERE ***
+
+#		(4d) Using the filtered dataset from 1.2b, use Plink to make a PCA with 10 axes 
+#			 (using the --pca flag followed by the number of axes you want considered).
+#				*** YOUR ANSWER HERE ***

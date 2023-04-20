@@ -1,0 +1,70 @@
+# ========================================================================================
+#                                      WORKSHOP 1
+# ========================================================================================
+
+# For relevant information and files, please go to the workshop's Github page here:
+# https://github.com/eachambers/EvoGeno-Methods-Workshop/tree/main/Workshop1
+
+
+# ========================================================================================
+#                                      EXERCISE 2
+# ========================================================================================
+
+# ================================= 1. RUNNING ADMIXTURE =================================
+
+# Admixture takes in a bed file, which you should have created using plink. We're going to
+# run it on both our LD-pruned and un-pruned datasets just to see how the results compare.
+# Sometimes, chromosome names aren't supported by admixture, and this is the case with the
+# Lampropeltis data. The problem is with the bim file, which is the file that accompanies
+# a bed file. The first column of the bim file needs to be the chromosome code, which must
+# be 'X'/'Y'/'XY'/'MT'; '0' indicates unknown. If you take a look at the bim files that were
+# made by Plink in exercise 1, you'll notice that the first column has RAD tag numbers. The
+# easiest way to get around this is to replace all of these RAD tag numbers with 0s. To do
+# so, run the following on **BOTH** your pruned and unpruned bim files:
+
+$ awk '{$1=0;print $0}' file.bim > file.bim.tmp # adds zeros to first column
+$ mv file.bim.tmp file.bim # replaces original bim file
+
+#		(1a) Run admixture with K=3 for both the pruned and unpruned bed files.
+#				*** YOUR ANSWER HERE ***
+
+# Admixture generates two files for each run: a Q file containing the ancestry fractions, 
+# and a P file containing the allele frequencies of the inferred ancestral populations. 
+
+# ====================== 2. DATA VISUALIZATION OF SUMMARY STATISTICS =====================
+
+# The following exercise uses the R script Workshop1_Exercise2.R.
+
+#		(2a) Using the missing data stats you generated in step 1.3a, plot the data however you 
+#			 would like. What is the average proportion of missing data across the entire
+#			 dataset?
+#				*** YOUR ANSWER HERE ***
+
+#		(2b) Using the depth statistics you generated in step 1.3b, plot the data in whichever 
+#			 way you would like. What is the average read depth across the entire dataset?
+#				*** YOUR ANSWER HERE ***
+
+#		(2c) Is there a relationship between missing data and read depth?
+#				*** YOUR ANSWER HERE ***
+
+#		(2d) Using the PCA results generated in 1.4d, generate a scatterplot for the first
+#			 two PC axes (*hint:* use the plink.eigenvec file).
+#				*** YOUR ANSWER HERE ***
+
+#		(2e) How much variation is explained by PCs 1 and 2?
+#				*** YOUR ANSWER HERE ***
+
+#		(2f) Using skeleton code provided in the R script, generate a visualization of the
+#			 the admixture results for both pruned and unpruned datasets (using the Q files).
+#			 How much of a difference does LD-pruning make in terms of results? BONUS: 
+#			 Generate a PCA for the LD-pruned dataset. How does it differ from that of the
+#			 unpruned dataset?
+#				*** YOUR ANSWER HERE ***
+
+#		(2g) Based on what you've observed about the data from all your visualizations, 
+#			 what do you notice about the major groupings within the PCA (axes 1 and 2)? 
+#			 Are the groupings along PC1 explained by (a) read depth, (b) missing data, or 
+#			 (c) a different species having been included in the dataset? What about PC2?
+#			 What is your evidence for this? Are there other reasons that could explain 
+#			 the pattern and how would you investigate these?
+#				*** YOUR ANSWER HERE ***
