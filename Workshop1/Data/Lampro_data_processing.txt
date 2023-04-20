@@ -1,0 +1,16 @@
+### GENERATING THE LAMPROPELTIS DATA FILE
+
+# There was some additional processing required to generate the Lampropeltis vcf file to
+# make it a little easier to deal with (and to more closely mimic vcfs typical of WGS
+# datasets).
+
+# The vcf was downloaded from Dryad here: 
+
+#		1. Compressed the vcf to vcf.gz:
+$ bgzip -c lampro_n93_noMD.vcf > lampro_n93_noMD.vcf.gz
+
+#		2. Indexed the vcf (no contigs were defined in header of vcf):
+$ bcftools index lampro_n93_noMD.vcf.gz # could also do tabix -p vcf lampro_n93_noMD.vcf.gz
+
+#		3. Generate a vcf that has the contigs defined in header:
+$ bcftools view -O v -o lampro.vcf lampro_n93_noMD.vcf.gz
