@@ -54,14 +54,17 @@ $ mv file.bim.tmp file.bim # replaces original bim file
 #		(2e) How much variation is explained by PCs 1 and 2?
 #				*** YOUR ANSWER HERE ***
 
-#		(2f) Using skeleton code provided in the R script, generate a visualization of the
+#		(2f) Is there a relationship between heterozygosity and PC1?
+#				*** YOUR ANSWER HERE ***
+
+#		(2g) Using skeleton code provided in the R script, generate a visualization of the
 #			 the admixture results for both pruned and unpruned datasets (using the Q files).
 #			 How much of a difference does LD-pruning make in terms of results? BONUS: 
 #			 Generate a PCA for the LD-pruned dataset. How does it differ from that of the
 #			 unpruned dataset?
 #				*** YOUR ANSWER HERE ***
 
-#		(2g) Based on what you've observed about the data from all your visualizations, 
+#		(2h) Based on what you've observed about the data from all your visualizations, 
 #			 what do you notice about the major groupings within the PCA (axes 1 and 2)? 
 #			 Are the groupings along PC1 explained by (a) read depth, (b) missing data, or 
 #			 (c) a different species having been included in the dataset? What about PC2?
