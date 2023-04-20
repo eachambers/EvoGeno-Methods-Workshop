@@ -93,8 +93,11 @@ $ bcftools view -i 'MIN(FMT/DP) > 2' -O v -o file_minDP.vcf file.vcf
 #			 look like?
 #				*** YOUR ANSWER HERE ***
 
-#		(3c) BONUS QUESTION: You can do multiple calls to vcftools within the same line.
-#			 How would you do both 1.3a and 1.3b in the same line of code?
+#		(3c) Calculate heterozygosity (using the --het flag) for the vcf from 1.2b.
+#				*** YOUR ANSWER HERE ***
+
+#		(3d) BONUS QUESTION: You can do multiple calls to vcftools within the same line.
+#			 How would you do both 1.3a-c in the same line of code?
 #				*** YOUR ANSWER HERE ***
 
 # =========================== 4. LD-PRUNING AND PCA WITH PLINK ===========================
