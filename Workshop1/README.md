@@ -45,3 +45,5 @@ Manuals for programs:
 **[plink](https://www.cog-genomics.org/plink/1.9/)**
 
 **[admixture](https://dalexander.github.io/admixture/admixture-manual.pdf)**
+
+Sims D, Sudbery I, Ilott NE, Heger A, Ponting CP. 2014. Sequencing depth and coverage: key considerations in genomic analyses. Nature Reviews Genetics 15:121-132. Available [here](https://www.nature.com/articles/nrg3642).
