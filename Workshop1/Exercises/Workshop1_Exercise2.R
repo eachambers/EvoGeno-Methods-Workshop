@@ -1,7 +1,8 @@
 # === 2. DATA VISUALIZATION OF SUMMARY STATISTICS ===
 
-# Load libraries
-
+# Be sure to set your working directory (wherever you saved your output files!)
+# and load relevant libraries. The following questions can be answered (and
+# visualized using only the tidyverse package).
 
 # 2a ----------------------------------------------------------------------
 
