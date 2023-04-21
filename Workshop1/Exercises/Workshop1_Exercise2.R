@@ -85,5 +85,9 @@
 #		(c) a different species having been included in the dataset? What is your 
 #   evidence for this? Are there other reasons that could explain the pattern 
 #   and how would you investigate these?
+
+#   *hint:* if you're having a lot of problems trying to figure out how to code
+#   up which samples should be assigned to which cluster, there's a file in the
+#   Data folder on GitHub (lampro_groups.txt) with individual assignments.
 # TODO: **YOUR ANSWER HERE**
 
