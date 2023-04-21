@@ -21,7 +21,7 @@ This workshop will explore the basics of genomics, including available methods t
 * Visualizing data for QC: PCA, relatedness, diversity, ADMIXTURE
 * "Red flags" in your data and what to do about them
 * Advanced data processing: ROH, imputation
-* ***Exercises [here](https://github.com/eachambers/EvoGeno-Methods-Workshop/blob/main/Workshop1/Exercises/EvoGenomics_Ws1_Ex2.txt) and R script [here](XXX)***
+* ***Exercises [here](https://github.com/eachambers/EvoGeno-Methods-Workshop/blob/main/Workshop1/Exercises/EvoGenomics_Ws1_Ex2.txt) and R script [here](https://github.com/eachambers/EvoGeno-Methods-Workshop/blob/main/Workshop1/Exercises/Workshop1_Exercise2.R)***
 
 ### Software required
 **Linux:** `vcftools`, `bcftools`, `plink`, `ADMIXTURE`
