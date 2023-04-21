@@ -1,0 +1,277 @@
+# ========================================================================================
+#                                      WORKSHOP 1
+# ========================================================================================
+
+# For relevant information and files, please go to the workshop's Github page here:
+# https://github.com/eachambers/EvoGeno-Methods-Workshop/tree/main/Workshop1
+
+# If you followed the installation instructions provided, you should be able to activate 
+# your conda environment (EvoGen). If you have not done so:
+
+conda create -n EvoGen
+
+# Install relevant packages in your environment and activate:
+
+conda activate EvoGen
+
+# Today, we'll be using the following programs:
+#			vcftools
+#			bcftools
+#			plink
+#			R
+
+# ========================================================================================
+#                                      EXERCISE 1
+# ========================================================================================
+
+# bcftools is a great program for processing data (and is also actively maintained), whereas
+# vcftools and plink are great for generating summary statistics. In this exercise, we'll 
+# use all three of these programs in the Terminal.
+
+# ======================= 1. BASIC EXAMINATION OF THE VCF DATA FILE ======================
+
+# Answer the following questions using bash.
+
+#		(1a) Take a look at the lampro.vcf file. How was this vcf generated?
+#				A: iPyrad v.0.9.81 (source line)
+$ head -n 5 lampro.vcf
+
+#		(1b) What info is contained (per site) within the vcf?
+#				A: FORMAT lines: GT (genotype), DP (read depth), and CATG (base counts)
+$ head -n 12 lampro.vcf
+
+# Let's take a closer look at the data contained within the vcf. The last commented header
+# and the first two non-commented lines look like this:
+
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	CAS178	CAS265A	CAS276	CAS277	CAS298	CAS299	F10526	F10600	F10601	F10616	F10797	F10985	F10986	F10995	F11004	F11011	F11072	F11086	F11271	F11333	F11338	F11400	F11512	F11518	F12268	F12299	F12492	F12501	F12655	F12786	F12850	F12867	F12873	F12878	F12902	F12910	F13122	F13514	F13668	F13946	F14000	F14488	F14976	F14992	F15236	F15710	F15711	F16397	F16447	F16634	F16635	F7627	F7910	F7931	F7991	F8275	F8310	F8333	F8348	F8351	F8447	F8496	F8549	F8838	F8870	F9397	F9636	F9637	F9650	F9699	JRO197	JRO198	TF08619	TF08620	TF08621	TF08622	TF08625	TF08626	TF08627	TF08628	TF08629	TF08630	TF08631	TF08632	TF08633	alt16w2m	alt16wlm	alt17w2f	alt17w4f	alt95w2f
+RAD_0	12	loc0_pos11	G	A	13	PASS	NS=113;DP=4086	GT:DP:CATG	0/0:19:0,0,0,19	0/0:43:0,0,0,43	0/0:39:0,0,0,39	0/0:64:0,0,0,64	0/0:23:0,0,0,23	0/0:23:0,0,0,23	0/0:56:0,0,0,56	0/0:11:0,0,0,11	0/0:6:0,0,0,6	./.:0:0,0,0,0	0/0:20:0,0,0,20	0/0:34:0,0,0,34	0/1:11:0,8,0,3	0/0:14:0,0,0,14	0/0:61:0,0,0,61	0/0:53:0,0,0,53	0/0:45:0,0,0,45	0/0:14:0,0,0,14	0/0:47:0,0,0,47	0/0:6:0,0,0,6	0/0:68:0,0,0,68	0/0:60:0,0,0,60	0/0:37:0,0,0,37	0/0:81:0,0,0,81	0/0:86:0,0,0,86	0/0:104:0,0,0,104	0/0:24:0,0,0,24	0/0:14:0,0,0,14	0/1:23:0,12,0,11	0/0:67:0,0,0,67	0/0:23:0,0,0,23	0/0:57:0,0,0,57	0/0:56:0,0,0,56	0/0:31:0,0,0,31	0/0:72:0,0,0,72	0/1:12:0,8,0,4	0/0:18:0,0,0,18	./.:11:0,9,0,2	0/0:24:0,0,0,24	0/0:17:0,0,0,17	0/0:22:0,0,0,22	0/0:14:0,0,0,14	0/0:7:0,0,0,7	0/0:20:0,0,1,19	0/0:8:0,0,0,8	0/0:12:0,0,0,12	0/0:56:0,0,0,56	0/0:36:0,0,0,36	0/0:43:0,0,0,43	0/0:14:0,0,0,14	0/0:26:0,0,0,26	0/0:12:0,0,0,12	0/0:26:0,0,0,26	0/0:15:0,0,0,15	0/1:12:0,4,0,8	0/0:29:0,0,0,29	0/0:69:0,0,0,69	0/0:37:0,0,0,37	0/0:147:0,0,0,147	0/1:57:0,33,0,24	0/0:66:0,0,0,66	0/0:88:0,0,0,88	0/0:18:0,0,0,18	0/0:14:0,0,0,14	0/0:52:0,0,0,52	0/0:36:0,0,0,36	0/0:19:0,0,0,19	0/0:18:0,0,0,18	0/0:18:0,0,0,18	0/0:30:0,0,0,30	0/0:42:0,0,0,42	0/0:75:0,0,0,75	0/0:9:0,0,0,9	0/0:36:0,0,0,36	0/0:15:0,0,0,15	0/0:7:0,0,0,7	0/0:53:0,0,0,53	0/1:86:0,43,0,43	0/0:24:0,0,0,24	./.:0:0,0,0,0	0/0:63:0,0,0,63	0/0:12:0,0,0,12	0/0:16:0,0,0,16	./.:0:0,0,0,0	0/0:65:0,0,0,65	0/0:41:0,0,0,41	0/0:21:0,0,0,21	0/0:51:0,0,0,51	0/0:19:0,0,0,19	0/0:25:0,0,0,25
+RAD_0	15	loc0_pos14	T	A	13	PASS	NS=112;DP=4086	GT:DP:CATG	0/1:19:0,10,9,0	0/0:43:0,0,43,0	0/0:39:0,0,39,0	0/0:64:0,0,64,0	0/1:23:0,14,9,0	0/0:23:0,0,23,0	0/0:56:0,0,56,0	./.:11:0,2,9,0	0/0:6:0,0,6,0	./.:0:0,0,0,0	0/1:20:0,4,16,0	0/0:34:0,0,34,0	0/0:11:0,0,11,0	0/0:14:0,0,14,0	0/0:61:0,0,61,0	0/0:53:0,0,53,0	0/1:45:0,19,26,0	0/0:14:0,0,14,0	0/0:47:0,0,47,0	0/0:6:0,0,6,0	0/0:68:0,0,68,0	0/0:60:0,0,60,0	0/0:37:0,0,37,0	0/0:81:0,0,81,0	0/1:86:0,43,43,0	0/0:104:0,0,104,0	0/0:24:0,0,24,0	0/1:14:0,9,5,0	0/0:23:0,0,23,0	0/0:67:0,0,67,0	0/0:23:0,0,23,0	0/0:57:0,0,57,0	0/0:56:0,0,56,0	0/0:31:0,0,31,0	0/0:72:0,0,72,0	0/0:12:0,0,12,0	0/1:18:0,7,11,0	0/0:11:0,0,11,0	0/0:24:0,0,24,0	0/0:17:0,0,17,0	0/0:22:0,0,22,0	0/0:14:0,0,14,0	0/0:7:0,0,7,0	0/0:20:0,0,20,0	0/0:8:0,0,8,0	0/0:12:0,0,12,0	0/0:56:0,0,56,0	0/0:36:0,0,36,0	0/0:43:0,0,43,0	0/0:14:0,0,14,0	0/0:26:0,0,26,0	0/0:12:0,0,12,0	0/0:26:0,0,26,0	0/0:15:0,0,15,0	0/0:12:0,0,12,0	0/0:29:0,0,29,0	0/0:69:0,0,69,0	0/1:37:0,13,24,0	0/0:147:0,0,147,0	0/1:57:0,24,33,0	0/0:66:0,0,66,0	0/0:88:0,1,87,0	0/0:18:0,0,18,0	0/0:14:0,0,14,0	0/1:52:0,16,36,0	0/0:36:0,0,36,0	0/0:19:0,0,19,0	0/0:18:0,0,18,0	0/0:18:0,0,18,0	0/0:30:0,0,30,0	0/1:42:0,22,20,0	0/1:75:0,29,46,0	./.:9:0,2,7,0	0/0:36:0,0,36,0	0/0:15:0,0,15,0	0/0:7:0,0,7,0	0/1:53:0,24,29,0	0/0:86:0,0,86,0	0/0:24:0,0,24,0	./.:0:0,0,0,0	0/0:63:0,0,63,0	0/0:12:0,0,12,0	0/0:16:0,0,16,0	./.:0:0,0,0,0	0/0:65:0,0,65,0	0/0:41:0,0,41,0	0/0:21:0,0,21,0	0/0:51:0,0,51,0	0/0:19:0,0,19,0	0/0:25:0,0,25,0
+
+# Recall that each (un-commented) row of the vcf has a single SNP or variant. There are 9 
+# columns of information before the sequence info begins (CAS178 is the first sample). 
+# Info on each of these is as follows:
+#		CHROM:		the chromosome name (the first SNP in Lampro is in chromosome RAD_0)
+#		POS:		the position within the chromosome that the SNP occurs at (first SNP is position 12)
+#		ID:			the identifier for that SNP (first is loc0_pos11)
+#		REF:		the allele of the primary reference genome
+#		ALT:		the allele of the alternate reference genome
+#		QUAL:		quality information
+#		FILTER:		if a filter has been applied, whether that SNP passes the filter or not
+#		INFO:		information on the reference that was used to call variants
+#		FORMAT:		information on the samples' sequences; in this case, the vcf is telling us
+#   				that each sample's information is ordered as GT, then DP, then CATG.
+#					Each of these pieces of information is separated by a colon. So, if we 
+#					look at the sequence information for the first site (first un-commented
+#					row) for our first sample (CAS178), we see the following:
+#						0/0:19:0,0,0,19
+#					This means that at this SNP, this sample has the genotype 0/0, a read
+#					depth of 19, and base counts of 0,0,0,19 for CATG, respectively.
+#					Genotype coding in a vcf is both alleles (because these data are diploid)
+#					where 0s are the reference allele and 1s are the alternate allele. For
+#					this SNP, the reference allele (under the REF column) is G, and the
+#					alternate allele is A (under the ALT column). Because this individual
+#					is 0/0, it is a homozygote for the reference allele, i.e., it is GG.
+#					This same individual, however, for the SECOND SNP in this dataset
+#					(loc0_pos14) is a heterozygote because its genotype is 0/1, meaning that
+#					at that site, it has T/A.
+
+
+# The following questions (1c-e) use the query command in bcftools.
+
+#		(1c) What do the following lines do?:
+$ bcftools query -f '[%GT\n]' lampro.vcf | head -3
+$ bcftools query -f '%CHROM %POS [%GT\n]' lampro.vcf | head -3
+#				A: The first line prints the genotype of the first three samples.
+#				The second line prints the chromosome, position and genotype of the first
+#				three samples. For any of the FORMAT lines (in this vcf, GT, DP, or CATG),
+#				these need to be contained within square brackets []. The other columns of 
+#				the vcf (CHROM, POS, etc.) don't need to be in square brackets because they
+#				aren't one of the FORMAT options.
+
+#		(1d) How many sites are there in the vcf? (*hint:* use the -f flag followed by 
+#			 '%POS\n'. The -f flag stands for "FORMAT", and the \n will make sure each 
+#			 site is printed on a separate line, which is important when you go to count the
+#			 number of lines...)
+#				A: There are 50852 sites in the vcf.
+$ bcftools query -f '%POS\n' lampro.vcf | wc -l # wc stands for "word count" and -l tells it to count lines
+
+#		(1e) How many samples are there in the vcf? (*hint:* use the -l flag)
+#				A: There are 90 samples in the vcf.
+$ bcftools query -l lampro.vcf | wc -l
+
+# Try running the above ^ without the | wc -l at the end. You see that it just prints all
+# the samples to the screen.
+
+# You can also run:
+$  bcftools stats lampro.vcf
+# The above ^ will generate a bunch of basic stats of your vcf for you.
+
+
+# ======================== 2. USING BCFTOOLS TO PROCESS THE DATA =========================
+
+#		For the following questions, the output type we want (-O flag) is an uncompressed 
+#		vcf, which is denoted with v (compressed - i.e., vcf.gz, is denoted with z). It's 
+#		also good practice to name our files according to what filters we've applied, which 
+#		we can do using the -o flag, followed by the output file name.
+
+#		-e is a flag that stands for "exclude". Likewise, the -i flag in bcftools stands for
+#		"include". Each of these flags can be used to filter out sites to be excluded or
+#		included based on user-specified conditions (e.g., exclude sites that have above
+#		x% missing data).
+
+#		For example, the following line will take in file.vcf and will produce a file 
+#		that only includes (-i flag) sites that have a minimum read depth (DP) specified 
+#		in the FORMAT header (FMT) of 5, and will save the output vcf file as file_minDP.vcf:
+$ bcftools view -i 'MIN(FMT/DP) > 5' -O v -o file_minDP.vcf file.vcf
+
+#		(2a) Filter the vcf file to remove sites that have missing data proportions >75%
+#			 (using the -e flag and 'F_MISSING'). How many sites remain?  What does the 
+#			 new vcf look like, and how does it differ from lampro.vcf?
+#			 does it differ from lampro.vcf?
+$ bcftools view -e 'F_MISSING > 0.75' -O v -o lampro_nomiss.vcf lampro.vcf
+$ bcftools query -f '%POS\n' lampro_nomiss.vcf | wc -l # A: 50625 sites remain
+
+#		(2b) Using the vcf you generated from 1.2a, apply a filter to the vcf to 
+#			 fail sites that have a minor allele frequency below 0.01 using the -q 
+#			 (or --min-af) flag. How many sites remain?
+$ bcftools view -q 0.01 -O v -o lampro_filtered.vcf lampro_nomiss.vcf
+$ bcftools query -f '%POS\n' lampro_filtered.vcf | wc -l # A: 30908 sites remain
+
+
+# ====================== 3. GENERATING SUMMARY STATS WITH VCFTOOLS =======================
+
+#		(3a) Calculate missing data proportions (--missing-indv flag) for the vcf that was 
+#			 generated from the filtering in step 1.2b. What does the resulting file look like?
+#				A: The .imiss file has columns for sample, number of sites, number of 
+#				genotypes that were filtered, number of missing sites, and proportion of
+#				missing sites.
+$ vcftools --vcf lampro_filtered.vcf --out lampro_filtered --missing-indv
+
+# The --missing-indv option tells vcftools to calculate missing data per individual, which
+# it does and then saves according to the file prefix you provided after "--out". This file
+# always has the suffix "imiss". Let's take a look at it:
+
+$ head lampro_filtered.imiss
+INDV	N_DATA	N_GENOTYPES_FILTERED	N_MISS	F_MISS
+CAS178	30908	0	436	0.0141064
+CAS265A	30908	0	1077	0.0348453
+CAS276	30908	0	987	0.0319335
+CAS277	30908	0	1622	0.0524783
+CAS298	30908	0	2211	0.0715349
+
+#		(3b) Extract read depths for each individual (--depth flag) for the vcf 
+#			 that was generated from the filtering in step 1.2b. What does the resulting file 
+#			 look like?
+#				A: The .idepth file has columns for sample, number of sites, and mean read
+#				depth per sample (across all sites).
+$ vcftools --vcf lampro_filtered.vcf --out lampro_filtered --depth
+
+# As with the --missing-indv option, the --depth option tells vcftools to calculate read
+# depths and save them in a file with the suffix "idepth". Let's take a look:
+
+$ head lampro_filtered.idepth
+INDV	N_SITES	MEAN_DEPTH
+CAS178	30908	107.973
+CAS265A	30908	135.379
+CAS276	30908	120.599
+CAS277	30908	158.396
+CAS298	30908	95.6179
+
+#		(3c) Calculate heterozygosity (using the --het flag) for the vcf from 1.2b.
+$ vcftools --vcf lampro_filtered.vcf --out lampro_filtered --het
+
+# Above is saved as "lampro_filtered.het" and looks like:
+
+$ head lampro_filtered.het
+INDV	O(HOM)	E(HOM)	N_SITES	F
+CAS178	25249	24242.6	29258	0.20067
+CAS265A	25154	23748.7	28657	0.28630
+CAS276	24584	23804.9	28732	0.15813
+CAS277	24121	23290.0	28113	0.17230
+CAS298	23574	22831.2	27554	0.15729
+
+#		(3d) BONUS QUESTION: You can do multiple calls to vcftools within the same line.
+#			 How would you do both 1.3a-c in the same line of code?
+$ vcftools --vcf lampro_filtered.vcf --out lampro_filtered --missing-indv --depth --het
+
+
+# =========================== 4. LD-PRUNING AND PCA WITH PLINK ===========================
+
+# Plink is another program that's helpful to calculate various metrics from data. Importantly,
+# Plink can also generate bed files for us, which will be helpful when using programs like
+# admixture. A call to Plink looks like:
+$ plink --vcf file.vcf --out output_prefix --allow-extra-chr --autosome-num 95 --distance square
+
+# The above will generate a square distance matrix (--distance flag) from file.vcf and will 
+# name it with the prefix provided using the --out flag. Additional flags are:
+#		--allow-extra-chr	allows unrecognized chromosome codes if you have non-standard
+#							chromosome IDs (as with our data!)
+#		--autosome-num		specifies the number of chromosomes. Just say 95 for our data.
+
+# LD-pruning with plink is a two-step process. The first step generates two files: a list 
+# of SNPs to be pruned out (.prune.out), and a list of SNPs to be retained (.prune.in) 
+# after LD-pruning. The second step takes in the prune.in file and actually does the 
+# LD-pruning on the data.
+
+#		(4a) Generate a list of SNPs to be LD-pruned using the --indep-pairwise flag with
+#			 the following parameters: a window size of 50, a step size of 5, and an r2
+#			 threshold of 0.6.
+$ plink --vcf lampro_filtered.vcf --indep-pairwise 50 5 0.6 --allow-extra-chr --autosome-num 95 --out lampro_ldpruned
+
+# The plink syntax is basically identical to vcftools's syntax. You can see that in the 
+# above, we've provided multiple options (which are required to be there without getting
+# an error). You should see that the above generated the .prune.in and .prune.out files
+# that are described. 
+
+#		(4b) Prune the SNPs from 1.4a out of the vcf (using the --extract flag followed by
+#			 the name of the prune.in file). Be sure to specify that you want a bed file 
+#			 created using the --make-bed flag, and you should also create a vcf file using
+#			 the --recode flag followed by the vcf float. How many sites remain after 
+#			 LD-pruning?
+#				A: 25314 variants remain.
+$ plink --vcf lampro_filtered.vcf --extract lampro_ldpruned.prune.in --out lampro_ldpruned --allow-extra-chr --autosome-num 95 --recode vcf --make-bed
+
+#		(4c) For the sake of comparing LD-pruned data to non-LD-pruned, let's also generate
+#			 a bed file directly from our filtered vcf (from 1.2b). To do so, all you need
+#			 to use is the --make-bed flag. Make sure you're still using --allow-extra-chr
+#			 and --autosome-num 95.
+$ plink --vcf lampro_filtered.vcf --make-bed --out lampro_filtered --allow-extra-chr --autosome-num 95
+
+#		(4d) Using the filtered dataset from 1.2b, use Plink to make a PCA with 10 axes 
+#			 (using the --pca flag followed by the number of axes you want considered).
+$ plink --vcf lampro_filtered.vcf --pca 10 --out lampro_filtered --allow-extra-chr --autosome-num 95
+
+
+# ========================================================================================
+#                                      EXERCISE 2
+# ========================================================================================
+
+# ================================= 1. RUNNING ADMIXTURE =================================
+
+# Admixture takes in a bed file, which you should have created using plink. We're going to
+# run it on both our LD-pruned and un-pruned datasets just to see how the results compare.
+# Sometimes, chromosome names aren't supported by admixture, and this is the case with the
+# Lampropeltis data. The problem is with the bim file, which is the file that accompanies
+# a bed file. The first column of the bim file needs to be the chromosome code, which must
+# be 'X'/'Y'/'XY'/'MT'; '0' indicates unknown. If you take a look at the bim files that were
+# made by Plink in exercise 1, you'll notice that the first column has RAD tag numbers. The
+# easiest way to get around this is to replace all of these RAD tag numbers with 0s. To do
+# so, run the following on **BOTH** your pruned and unpruned bim files:
+
+$ awk '{$1=0;print $0}' lampro_filtered.bim > lampro_filtered.bim.tmp
+$ mv lampro_filtered.bim.tmp lampro_filtered.bim
+
+$ awk '{$1=0;print $0}' lampro_ldpruned.bim > lampro_ldpruned.bim.tmp
+$ mv lampro_ldpruned.bim.tmp lampro_ldpruned.bim
+
+#		(1a) Run admixture with K=3 for both the pruned and unpruned bed files.
+$ admixture --cv lampro_filtered.bed 3
+$ admixture --cv lampro_ldpruned.bed 3
+
+# Admixture generates two files for each run: a Q file containing the ancestry fractions, 
+# and a P file containing the allele frequencies of the inferred ancestral populations. 
+
+
+# ====================== 2. DATA VISUALIZATION OF SUMMARY STATISTICS =====================
+
+### See the Workshop1_Exercise2_ANSWERS.R file for answers.
