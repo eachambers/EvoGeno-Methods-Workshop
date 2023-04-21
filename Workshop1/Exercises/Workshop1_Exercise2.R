@@ -82,10 +82,8 @@
 #   Based on what you've observed about the data from all your visualizations, 
 #   what do you notice about the major groupings within the PCA (axes 1 and 2)? 
 #		Are the groupings along PC1 explained by (a) read depth, (b) missing data, or 
-#		(c) a different species having been included in the dataset? What about PC2?
-#		What is your evidence for this? Are there other reasons that could explain 
-#		the pattern and how would you investigate these? BONUS: Colorize your PCA with
-#   the two first PCs based on admixture groupings. Colorize your PCA of the first
-#   two PCs based on missing data and/or read depth.
+#		(c) a different species having been included in the dataset? What is your 
+#   evidence for this? Are there other reasons that could explain the pattern 
+#   and how would you investigate these?
 # TODO: **YOUR ANSWER HERE**
 
