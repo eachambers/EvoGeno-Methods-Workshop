@@ -69,7 +69,7 @@ $ bcftools query -f '%CHROM %POS [%GT\n]' lampro.vcf | head -3
 #		For example, the following line will take in file.vcf and will produce a file 
 #		that only includes (-i flag) sites that have a minimum read depth (DP) specified 
 #		in the FORMAT header (FMT) of 5, and will save the output vcf file as file_minDP.vcf:
-$ bcftools view -i 'MIN(FMT/DP) > 2' -O v -o file_minDP.vcf file.vcf
+$ bcftools view -i 'MIN(FMT/DP) > 5' -O v -o file_minDP.vcf file.vcf
 
 #		(2a) Filter the vcf file to remove sites that have missing data proportions >75%
 #			 (using the -e flag and 'F_MISSING'). How many sites remain?  What does the 
