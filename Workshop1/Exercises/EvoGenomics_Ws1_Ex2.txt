@@ -44,7 +44,9 @@ $ mv file.bim.tmp file.bim # replaces original bim file
 #			 way you would like. What is the average read depth across the entire dataset?
 #				*** YOUR ANSWER HERE ***
 
-#		(2c) Is there a relationship between missing data and read depth?
+#		(2c) Is there a relationship between missing data and read depth?  If these 
+# 			 were your data, would you remove some samples to minimize low coverage and/or
+#			 high missing data? 
 #				*** YOUR ANSWER HERE ***
 
 #		(2d) Using the PCA results generated in 1.4d, generate a scatterplot for the first
