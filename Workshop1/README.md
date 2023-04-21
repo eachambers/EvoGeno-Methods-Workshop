@@ -9,14 +9,14 @@ This workshop will explore the basics of genomics, including available methods t
 
 ### Topics
 
-**1. Basics of genomics (slides [here](XXX))**
+**1. Basics of genomics (slides [here](https://github.com/eachambers/EvoGeno-Methods-Workshop/blob/main/Workshop1/Lectures/EvoGenomicsworkshop1_1.pdf))**
 * Quick summary of approaches: library prep & bioinformatics assembly (standard filtering, mapping, and variant calling)
 * How do methods compare? How does it depend on the questions you want to ask?
 * Considerations and biases for different genomic data types
 * Brief review of sequencing/input/output file types
 * ***Exercises [here](https://github.com/eachambers/EvoGeno-Methods-Workshop/blob/main/Workshop1/Exercises/EvoGenomics_Ws1_Ex1.txt)***
 
-**2. Quality control of genomic data (slides [here](XXX))**
+**2. Quality control of genomic data (slides [here](https://github.com/eachambers/EvoGeno-Methods-Workshop/blob/main/Workshop1/Lectures/EvoGenomicsworkshop1_2.pdf))**
 * Missing data, read depth, LD-pruning, and other considerations
 * Visualizing data for QC: PCA, relatedness, diversity, ADMIXTURE
 * "Red flags" in your data and what to do about them
