@@ -3,6 +3,8 @@
 
 ## Friday, April 21 (10am-1pm)
 
+### Recording available [here](https://drive.google.com/file/d/1Lc1tMqDWcBUoP1JMlo9wiMGC8tG3_JLz/view?usp=share_link)
+
 Instructor: Anne Chambers (eachambers@berkeley.edu)
 
 This workshop will explore the basics of genomics, including available methods to gather genome-scale data (including reduced-representation methods, whole genome sequencing, transcriptomics, etc.). We will go over the basics of data assembly (filtering and basic bioinformatics processing) with an emphasis on considerations to make depending on sampling, availability of funding and a reference genome, and if you have only low-coverage datasets. We will then do some basic quality control and data exploration of assemblies. The worksheet will be on quality control, basic population genomics (e.g., structure), and generating output files for downstream analyses.
