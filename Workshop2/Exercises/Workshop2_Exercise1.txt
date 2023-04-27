@@ -1,0 +1,90 @@
+# ========================================================================================
+#                                      WORKSHOP 2
+# ========================================================================================
+
+# For relevant information and files, please go to the workshop's Github page here:
+# https://github.com/eachambers/EvoGeno-Methods-Workshop/tree/main/Workshop2
+
+# If you followed the installation instructions provided, you should be able to activate 
+# your conda environment (EvoGen). If you have not done so:
+
+conda create -n EvoGen
+
+# Install relevant packages in your environment and activate:
+
+conda activate EvoGen
+
+# Today, we'll be using the following programs:
+#			vcftools
+#			bedtools
+#			GADMA
+#			Gemma
+#			R
+
+# ========================================================================================
+#                                      EXERCISE 1
+# ========================================================================================
+
+# Today we will be using functions in VCFtools for performing windowed genome scans.
+# The output of VCFtools can be analyzed and manipulated using BEDtools with 
+# further editing, plotting and generation of summary stats in R.
+# Both VCFtools and BEDtools are used in command line.
+
+# ======================= 1. Estimating Fst using VCFtools ======================
+
+# Answer the following questions using bash.
+
+#		(1a) Download example data files from the github page if you have not already done so.
+#			 There will be three files needed for this first exercise:
+#			 	(1) The vcf file name: SAVS_exampleDataset.vcf
+#			 	(2) Two text files designating individuals belonging to two populations: Upland_SAVS.txt, BayArea.txt
+#			 These three files will be necessary to run a windowed analysis of Fst in vcftools
+#			 Run analysis using VCFtools (hints: input vcf with --vcf flag; --weir-fst-pop <file> should be called twice
+#			 with each file a text file listing individuals in pop1 and pop2. Specify size of windows using --fst-window-size 
+#			 <10000, 15000, 25000 are common window sizes>).
+#			How long does the analysis take to run and what is genomewide Fst (hint: these values should be output to screen)?	
+				*** YOUR ANSWER HERE ***
+
+#		(1b) Look at the output file. Can you get the number of windows found? (hint: cat <filename> | wc -l )
+				*** YOUR ANSWER HERE ***
+
+#		(1c) !!!Bonus exercise!!! Can you use vcftools to estimate pi or Tajima's D in sliding windows? (hint: you will want
+#				to do this on just a single population specified with --keep flag). 
+#				List the code you used below.
+				*** YOUR ANSWER HERE ***
+
+# ======================== 2. USING BEDtools to annotate VCFtools output =========================
+
+#		For the following questions, we will use the output from the previous step in vcftools
+#		to determine the genes potentially overlapping with our Fst windows.
+#		This step uses bedtools intersect –a <file1> -b <file2> –wao >new_annotated file.txt 
+#		Here -a file will be the output from vcftools and -b is a list of bed regions corresponding to exons:
+#		FullData_WTSP_CaptureRegions_merged.bed
+
+#		(2a) Run the bedtools command. How has the file changed? (hint: you can view the top few lines
+#				using head <new-filename> or less <new-filename>)
+				*** YOUR ANSWER HERE ***
+
+# ====================== 3. Visualizing outliers ==========================
+#		We can now import the output from vcftools into R to visualize variation in Fst across the genome
+#		and identify outlier genes. 
+#		We will specifically create a manhattan plot using the R package qqman.
+#		After installed using, e.g. install.packages("qqman")
+#		use library(qqman) to load into R.
+#		import data: windows<-read.table("~/Dropbox/EvoGenomics_workshop/SAVS_windows_out.txt", header=FALSE)
+#		QQman was originally designed to work with GWAS data, so we will have to edit our input file a little bit.
+#		First add column names like so: colnames(windows)=c("Chr", "Start", "End", "Variants",  "WeightedFSt", "Fst", "Chr2", "Start2", "End2", "Gene", "overlap")
+#		Next add a 'SNPs' column: windows$SNP<-seq.int(nrow(windows))
+#		now make your plot: manhattan(windows, chr="Chr", bp="Start", p="WeightedFSt", snp="SNP", logp=FALSE, ylab="Fst")
+#		This should provide a visualization of Fst outliers across the genome. Now we will do a couple exercises to look at these outliers.
+
+#		(3a) Use R to estimate mean Fst for all your windows (hint: mean(windows$Fst)). 
+			 Estimate the 99th percentile for Fst (hint: quantile(windows$Fst, 0.99))
+			 What are these values? Bonus!! Try adding these values to your manhattan plot with suggestiveline=99th_per, genomewideline=mean_fst
+#				*** YOUR ANSWER HERE ***
+
+#		(3b) What is the top outlier(s) in the dataset? (hint: subset(windows, Fst == max(Fst))) 
+			 What is Fst for the top outlier? Can you google the gene and learn about its function? 
+#			 look like?
+#				*** YOUR ANSWER HERE ***
+

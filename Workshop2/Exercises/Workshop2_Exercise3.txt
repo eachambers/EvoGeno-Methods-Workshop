@@ -1,0 +1,53 @@
+# ========================================================================================
+#                                      WORKSHOP 2
+# ========================================================================================
+
+# For relevant information and files, please go to the workshop's Github page here:
+# https://github.com/eachambers/EvoGeno-Methods-Workshop/tree/main/Workshop2
+
+# If you followed the installation instructions provided, you should be able to activate 
+# your conda environment (EvoGen). If you have not done so:
+
+conda create -n EvoGen
+
+#for Gadma you likely needed to create a separate environment for install
+
+# Install relevant packages in your environment and activate:
+
+conda activate EvoGen
+
+# Today, we'll be using the following programs:
+#			vcftools
+#			bedtools
+#			GADMA
+#			Gemma
+#			R
+
+# ========================================================================================
+#                                      EXERCISE 3
+# ========================================================================================
+
+# For the last exercise of the day we will dip our toes into demographic analysis with GADMA.
+# Though GADMA is a complex program it has made using the data
+# Input data will be in the Data_excercise3 folder and include two files.
+# 1) Is a vcf file and the second is a population map .txt file assigning each individual to two populations.
+
+# ======================= 1. Starting GADMA using a vcf file ======================
+
+# The command line for GADMA is relatively simple. 
+# You can start the program running in command line using: gadma -i vcf,popmap -o output_dir (you do not need to create an output beforehand)
+
+#		(1a) Once the program starts running it should output some green lines saying everything loaded ok
+#				Yellow warnings can be disregarded.
+#				How many populations and individuals are in the dataset?	 			
+#				*** YOUR ANSWER HERE ***
+
+#		(1b) Open up the output directory. What does the .png file show?
+#				*** YOUR ANSWER HERE ***
+
+#		(1c) Open the params_file with a text editor. This should contain detailed descriptions of each parameter.
+#			  Try editing some of the parameters and save the file.
+#			  You can now begin a new run of gadma using the params file
+#			  gadma -p <params_file> -o <new output dir> 
+#			  What params did you change? Did this change the screen output at all?
+				*** YOUR ANSWER HERE ***
