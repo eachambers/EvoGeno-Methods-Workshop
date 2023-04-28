@@ -14,6 +14,7 @@ This workshop is designed to provide a brief introduction into some commonly use
 * Learn how to make Manhattan plots to visualize results.
 * Use bedtools and other software to identify specific outlier genes. 
 * ***Activities and questions [here](XXX)***
+* The vcf file for this exercise can be downloaded here: https://www.dropbox.com/s/ilzyhv1a4kw3s2k/SAVS_exampleDataset_exercise1.vcf.gz?dl=0
 
 **2. Learn how to make genotype-environment/phenotype associations. (slides [here](XXX))**
 *    Learn how to prepare different data types for analysis (i.e. genotypes, environmental data, phenotypic data).
@@ -26,6 +27,7 @@ This workshop is designed to provide a brief introduction into some commonly use
 *   Introduction to GADMA and the models it supports.
 *   Tutorial on inputting data to GADMA, running a demographic analysis, and interpreting results. 
 * ***Activities and questions [here](XXX)***
+* The vcf file for this exercise can be downloaded here: https://www.dropbox.com/s/ld8wd3oqgoruarf/SAVS_GADMA_example.vcf.gz?dl=0
 
 ### Software required
 **Online:** [http://geneontology.org](http://geneontology.org/)
