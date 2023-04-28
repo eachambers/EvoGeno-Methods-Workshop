@@ -9,20 +9,20 @@ This workshop is designed to provide a brief introduction into some commonly use
 
 ### Topics
 
-**1. Genome scans to detect loci under selection. (slides [here](XXX))**
+**1. Genome scans to detect loci under selection. (slides [here](https://github.com/eachambers/EvoGeno-Methods-Workshop/blob/main/Workshop2/Lectures/EvoGen_workshop2_genomeScans.pdf))**
 * Use vcftools to perform and interpret commonly used selection scan techniques between two populations (e.g. Fst, Dxy, Tajima's D,    Nucleotide diversity). 
 * Learn how to make Manhattan plots to visualize results.
 * Use bedtools and other software to identify specific outlier genes. 
 * ***Activities and questions [here](XXX)***
 * The vcf file for this exercise can be downloaded here: https://www.dropbox.com/s/ilzyhv1a4kw3s2k/SAVS_exampleDataset_exercise1.vcf.gz?dl=0
 
-**2. Learn how to make genotype-environment/phenotype associations. (slides [here](XXX))**
+**2. Learn how to make genotype-environment/phenotype associations. (slides [here](https://github.com/eachambers/EvoGeno-Methods-Workshop/blob/main/Workshop2/Lectures/EvoGen_Workshop2_GEA.pdf))**
 *    Learn how to prepare different data types for analysis (i.e. genotypes, environmental data, phenotypic data).
 *    Use RDA to make and interpret genotype-environment associations across spatial scales.
 *    Learn how to use GEMMA to make genotype-phenotype associations within a population. 
 * ***Activities and questions [here](XXX)***
 
-**3. The basics of demographic analysis with genomic datasets.(slides [here](XXX))**
+**3. The basics of demographic analysis with genomic datasets.(slides [here](https://github.com/eachambers/EvoGeno-Methods-Workshop/blob/main/Workshop2/Lectures/EvoGen_Workshop2_Demography.pdf))**
 *   An overview of the different kinds of approaches for making demographic inference (e.g. SMC, coalescent models, site frequency spectrum).
 *   Introduction to GADMA and the models it supports.
 *   Tutorial on inputting data to GADMA, running a demographic analysis, and interpreting results. 
