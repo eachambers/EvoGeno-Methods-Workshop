@@ -29,6 +29,10 @@ conda activate EvoGen
 # The output of VCFtools can be analyzed and manipulated using BEDtools with 
 # further editing, plotting and generation of summary stats in R.
 # Both VCFtools and BEDtools are used in command line.
+# Data for this exercise is in two places: EvoGeno-Methods-Workshop2/Data/Exercise1
+# And a large file on dropbox:  https://www.dropbox.com/s/ld8wd3oqgoruarf/SAVS_GADMA_example.vcf.gz?dl=0
+# You can copy that link into your browser and download or use wget in terminal:
+# wget https://www.dropbox.com/s/ld8wd3oqgoruarf/SAVS_GADMA_example.vcf.gz?dl=0
 
 # ======================= 1. Estimating Fst using VCFtools ======================
 
