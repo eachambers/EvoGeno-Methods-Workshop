@@ -3,6 +3,8 @@
 
 ## Friday, April 28 (10am-1pm)
 
+### Recording available [here](https://drive.google.com/file/d/16XG9JiMtA9jnZT-NslD9TPPmQc0BILfg/view?usp=sharing)
+
 Instructor: Phred Benham (phbenham@gmail.com)
 
 This workshop is designed to provide a brief introduction into some commonly used approaches to identifying outlier genes of interest that may be under selection or associated with a phenotype of interest. Methods discussed will include genome scans and statistical approaches for making associations between genotype data and environmental or phenotypic variation. In the second half of the workshop, we will discuss approaches to demographic analysis (e.g. gene flow, Ne fluctuations, divergence time) in population genomics datasets. The workshop will provide an overview of how to make demographic inferences using the site frequency spectrum.
