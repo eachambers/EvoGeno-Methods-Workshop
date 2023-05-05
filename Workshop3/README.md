@@ -10,17 +10,17 @@ This workshop will use whole genome information of different species at differen
 ### Topics
 
 **1. Which questions we can address using a comparative genomic approach (slides [here](XXX))**
-* ***Activities and questions [here](XXX)***
+* ***Activities and questions in the file "Workshop3_ComparativeGenomics_Excercise"***
 
 **2. Evaluate the quality of a genome available in databases (slides [here](XXX))**
-* ***Activities and questions [here](XXX)***
+
 
 **3. Phylogenomics (slides [here](XXX))**
 * Generating databases of orthologous genes
 * Alignment, trimming and filtering sequences
 * Evolutionary best fit model
 * Tree construction
-* ***Activities and questions [here](XXX)***
+
 
 **4. Selection test comparing species (slides [here](XXX))**
 * *dN/dS* selection test (Codeml and Hyphy)
@@ -29,7 +29,7 @@ This workshop will use whole genome information of different species at differen
 * Likelihood test and sites under selection
 * Functional annotation
 * Gene Ontology enrichment
-* ***Activities and questions [here](XXX)***
+
 
 **5. Gene family evolution review (slides [here](XXX))**
 * ***Activities and questions [here](XXX)***
